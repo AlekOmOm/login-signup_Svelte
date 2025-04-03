@@ -1,47 +1,149 @@
-# Svelte + Vite
+# Svelte Auth - Login & Signup Application
 
-This template should help get you started developing with Svelte in Vite.
+![Svelte](https://img.shields.io/badge/Svelte-4.0+-orange.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## Recommended IDE Setup
+A visually appealing, single-page Svelte application featuring a 3D flip card animation for login and signup functionality.
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+## Features
 
-## Need an official Svelte framework?
+- 📱 Responsive design that works on desktop and mobile devices
+- 🔄 Smooth 3D flip card animation between login and signup forms
+- 🎨 Modern UI with gradient colors and subtle animations
+- 📝 Form validation for both login and signup
+- 🔒 Password confirmation on signup
+- ✅ Terms of service agreement checkbox
+- 🌐 Social login options (Google, Facebook, Apple)
+- 💾 "Remember me" functionality
+- ⚡ Loading state indicators
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+## Project Structure
 
-## Technical considerations
-
-**Why use this over SvelteKit?**
-
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
-
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
-
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `checkJs` in the JS template?**
-
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
 ```
+src/
+├── app.css               # Global CSS styles
+├── App.svelte            # Main application component with 3D flip card
+├── main.js               # Entry point for the Svelte application
+├── vite-env.d.ts         # TypeScript declarations for Vite
+├── assets/               # Static assets (images, etc.)
+├── components/           # Reusable UI components
+│   ├── Footer.svelte     # Footer component with links and copyright
+│   ├── Header.svelte     # Header component with title and subtitle
+│   ├── Login.svelte      # Login form component
+│   └── Signup.svelte     # Signup form component
+└── lib/                  # Utility functions and shared code
+```
+
+## Components
+
+### App.svelte
+
+The main application component that:
+
+- Imports and arranges all components
+- Manages the state for flipping the card between login and signup
+- Implements the 3D flip card animation
+- Contains the layout structure for the single-page application
+
+### Header.svelte
+
+A customizable header component that:
+
+- Displays the application title and subtitle
+- Features a gradient background
+- Accepts props for customizing the title and subtitle text
+
+### Login.svelte
+
+The login form component that:
+
+- Handles email and password inputs
+- Provides form validation
+- Manages login submission state
+- Offers "Remember me" functionality
+- Includes "Forgot Password" link
+- Provides social login options
+- Displays error messages
+
+### Signup.svelte
+
+The signup form component that:
+
+- Collects user information (name, email, password)
+- Validates password confirmation
+- Requires terms of service agreement
+- Manages signup submission state
+- Provides social signup options
+- Displays error messages
+
+### Footer.svelte
+
+A responsive footer component that:
+
+- Displays company information
+- Includes quick navigation links
+- Shows contact information
+- Displays a copyright notice with the current year
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 14.x or higher
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd login-signup_Svelte
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+5. Open your browser and navigate to `http://localhost:5173`
+
+## Usage
+
+- The application starts on the login screen
+- Click "Create Account" to flip the card to the signup form
+- On the signup form, click "Login" to flip back to the login form
+- Fill in the required fields and submit the form to see the validation in action
+
+## Customization
+
+- Modify `app.css` to change global styles
+- Edit component styles to customize the appearance
+- Update the Header component props to change the title and subtitle
+- Customize form fields and validation as needed
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Built with [Svelte](https://svelte.dev/)
+- Icons from [Bootstrap Icons](https://icons.getbootstrap.com/)
+- Inspired by modern authentication UI designs
