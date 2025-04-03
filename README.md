@@ -5,6 +5,8 @@
 
 A visually appealing, single-page Svelte application featuring a 3D flip card animation for login and signup functionality.
 
+<img src="./public/Screenshot_2025-04-03.png" alt="app" width="400vh"/>
+
 ## Features
 
 - 📱 Responsive design that works on desktop and mobile devices
