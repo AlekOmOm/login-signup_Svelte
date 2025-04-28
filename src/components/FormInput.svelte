@@ -23,6 +23,10 @@
 </div>
 
 <style>
+    /* Import shared styles */
+    @import "../styles/shared.css";
+    
+    /* Component-specific styles can be added here if needed */
     .form-group {
         margin-bottom: 16px;
         width: 80%;

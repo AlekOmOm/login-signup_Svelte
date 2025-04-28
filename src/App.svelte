@@ -2,175 +2,31 @@
     // Import components
     import Header from './components/Header.svelte';
     import Footer from './components/Footer.svelte';
-    import Login from './components/Login.svelte';
-    import Signup from './components/Signup.svelte';
-    
-    // State to track which side of the card to show
-    let isFlipped = false;
-    
-    // Function to flip the card
-    function flipCard() {
-        isFlipped = !isFlipped;
-    }
+    import Card from './components/Card.svelte';
+
+    // Import global styles
+    import './styles/app.css';
+    import './styles/shared.css';
 </script>
 
-<main>
-    <Header 
-        title="Welcome to Svelte Auth" 
-        subtitle="Please login or create an account to continue" 
-    />
+<div class="app-container">
+    <Header />
 
-    <div class="card-container">
-        <div class="flip-card {isFlipped ? 'flipped' : ''}">
-            <!-- Front side (Login) -->
-            <div class="flip-card-front">
-                <div class="card-header">
-                    <h2>Login</h2>
-                    <p>Access your account</p>
-                </div>
-                <Login />
-                <div class="card-footer">
-                    <p>Don't have an account?</p>
-                    <button class="flip-button" on:click={flipCard}>
-                        Create Account
-                        <span class="arrow">→</span>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Back side (Signup) -->
-            <div class="flip-card-back">
-                <div class="card-header">
-                    <h2>Sign Up</h2>
-                    <p>Create a new account</p>
-                </div>
-                <Signup />
-                <div class="card-footer">
-                    <p>Already have an account?</p>
-                    <button class="flip-button" on:click={flipCard}>
-                        Login
-                        <span class="arrow">←</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <main class="main-content">
+        <Card />
+    </main>
+    
     <Footer />
-</main>
+</div>
 
 <style>
-    main {
+    .app-container {
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        background: linear-gradient(to bottom, #f5f7fa, #e3ebf5);
-    }
-    
-    .card-container {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        perspective: 1000px;
-        padding: 2rem 1rem;
-    }
-    
-    .flip-card {
-        width: 100%;
-        max-width: 480px;
-        min-height: 520px;
-        position: relative;
-        transition: transform 0.8s;
-        transform-style: preserve-3d;
-    }
-    
-    .flipped {
-        transform: rotateY(180deg);
-    }
-    
-    .flip-card-front, .flip-card-back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        padding: 30px;
-        border-radius: 12px;
-        backface-visibility: hidden;
-        background-color: white;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .flip-card-front {
-        z-index: 2;
-    }
-    
-    .flip-card-back {
-        transform: rotateY(180deg);
-    }
-    
-    .card-header {
-        margin-bottom: 1.5rem;
-        text-align: center;
-    }
-    
-    .card-header h2 {
-        color: #444;
-        margin: 0;
-        font-size: 1.8rem;
-    }
-    
-    .card-header p {
-        color: #777;
-        margin: 0.5rem 0 0;
-        font-size: 1rem;
-    }
-    
-    .card-footer {
-        margin-top: auto;
-        padding-top: 1.5rem;
-        text-align: center;
-        border-top: 1px solid #f0f0f0;
-    }
-    
-    .card-footer p {
-        color: #777;
-        margin: 0 0 0.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .flip-button {
-        background: transparent;
-        border: none;
-        color: #6e8efb;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        padding: 0;
-    }
-    
-    .flip-button:hover {
-        color: #a777e3;
-        border-color: transparent;
-    }
-    
-    .arrow {
-        display: inline-block;
-        margin-left: 6px;
-        transition: transform 0.2s;
-    }
-    
-    .flip-button:hover .arrow {
-        transform: translateX(4px);
     }
 
-    @media (max-width: 520px) {
-        .flip-card {
-            min-height: 560px;
-        }
+    .main-content {
+        padding-top: 10vh;
     }
 </style>
